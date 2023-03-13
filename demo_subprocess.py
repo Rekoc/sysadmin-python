@@ -38,7 +38,7 @@ def call_run(cmd):
 """
 subprocess.Popen
 """
-def call_Popen(cmd):
+def call_Popen(cmd: List[str]):
     output, ret, rt_proc = None, None, None
     try:
         rt_proc = Popen(
