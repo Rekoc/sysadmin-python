@@ -1,16 +1,15 @@
 import scrapy
 
-class MySpider(scrapy.Spider):
-    name = 'example.com'
-    allowed_domains = ['example.com']
+class DocPython(scrapy.Spider):
+    name = 'doc_python'
+    allowed_domains = ['python.com']
     start_urls = [
-        'http://www.example.com/1.html',
-        'http://www.example.com/2.html',
-        'http://www.example.com/3.html',
+        'https://docs.python.org/3/library/os.html',
     ]
 
     def parse(self, response):
         for h3 in response.xpath('//h3').getall():
+            print(h3)
             yield {"title": h3}
 
         for href in response.xpath('//a/@href').getall():

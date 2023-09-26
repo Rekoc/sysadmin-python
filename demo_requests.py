@@ -43,6 +43,7 @@ def get_data_from_github():
     )
     # pprint(response.json())
     json_content = response.json()
+    pprint(json_content)
     for user in json_content["items"]:
         name, url = user["login"], user["repos_url"]
         print(f"Username: {name} --> {url}")
@@ -81,5 +82,5 @@ def main():
     # pprint(response.json())
 
 if __name__ == "__main__":
-    # get_data_from_github()
-    main()
+    get_data_from_github()
+    # main()
