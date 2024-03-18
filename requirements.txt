@@ -12,7 +12,7 @@ pycparser==2.20
 six==1.16.0
 pynacl==1.4.0
 bcrypt==3.2.0
-invoke==1.6.0
+invoke
 pathlib2==2.3.6
 paramiko==2.7.2
 fabric==3.2.2
