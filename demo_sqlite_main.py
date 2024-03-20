@@ -15,11 +15,11 @@ def main():
         last_name="Raspaud",
         creation_date=datetime.now()
     )
-    prof_id = prof.save()
+    status = prof.save() # 1 --> OK // 0 --> NOK !
     # Creating a Course
     course = Course.create(
         name="Python3 SysAdmin",
-        professor=prof_id,
+        professor=prof.id,
         creation_date=datetime.now()
     )
     # Creating two Students
@@ -36,11 +36,11 @@ def main():
 
     # Let's read our reccords !
     try:
-        query = Professor.get_by_id(prof_id)
+        query = Professor.get_by_id(1)
         print(query.first_name, query.last_name)
         print(query.full_name)
     except DoesNotExist as ex:
-        print(f"Professor with id {prof_id} does not exist ! Quitting !")
+        print(f"Professor with id {1} does not exist ! Quitting !")
         return
 
 if __name__ == "__main__":
