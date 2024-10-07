@@ -26,29 +26,29 @@ def main():
     print(f"root_file = {root_file}")
     print(f"file_path = {file_path}")
 
-    data = read_data_file(
+    df = read_data_file(
         os.path.join(root_file, "statics", "excel_file.csv")
     )
     # print("--- Your data file ---")
-    print(f"Data types:\n{data.dtypes}\n")
-    print(f"File's info:\n{data.info()}\n")
-    print(f"{data.count()}\n")
+    print(f"Data types:\n{df.dtypes}\n")
+    print(f"File's info:\n{df.info()}\n")
+    print(f"{df.count()}\n")
     # print(f"Columns:\n{data.columns}\n")
-    # print(f"{data.to_json()}\n")
-    # print(f"{data.to_html()}\n")
-    # print(f"{data.to_dict()}\n")
+    # print(f"{df.to_json()}\n"up)
+    # print(f"{df.to_html()}\n")
+    # print(f"{df.to_dict()}\n")
 
-    print(data)
-    temp_df = data.get("clientid").copy()
+    print(df)
+    temp_df = df.get("clientid").copy()
     # Equivalent
     # temp_df = data["clientid"].copy()
     print(temp_df)
     temp_df = temp_df.apply(my_method)
     print(temp_df)
-    data["clientid"] = temp_df
+    df["clientid"] = temp_df
 
     # Write an Excel file with the updated values
-    data.to_excel(
+    df.to_excel(
         os.path.join(root_file, "demo_excel.xlsx")
     )
 
